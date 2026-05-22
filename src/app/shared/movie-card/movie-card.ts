@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './movie-card.html',
   styleUrl: './movie-card.css',
 })
-export class MovieCard {}
+export class MovieCard {
+  @Input() title = '';
+  @Input() image = '';
+  @Input() rating = 0;
+}

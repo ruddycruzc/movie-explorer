@@ -1,13 +1,68 @@
 <header>
-<nav></nav>
+  <app-navbar></app-navbar>
 </header>
 
 <main>
-<section id="hero"></section>
+  <section
+    class="h-[70vh] bg-slate-950 text-white flex items-center justify-center"
+  >
+    <div class="text-center px-6">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        Movie Explorer
+      </h1>
 
-<section id="popular-movies"></section>
+      <p class="text-lg md:text-2xl text-slate-300">
+        Descubre las mejores películas del momento
+      </p>
+    </div>
+  </section>
 
-<section id="top-rated"></section>
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold mb-10">
+      Películas populares
+    </h2>
+
+    <div
+      class="
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4
+        gap-8
+      "
+    >
+      <app-movie-card
+        title="Interstellar"
+        image="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+        [rating]="8.7"
+      >
+      </app-movie-card>
+
+      <app-movie-card
+        title="Inception"
+        image="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
+        [rating]="8.8"
+      >
+      </app-movie-card>
+
+      <app-movie-card
+        title="The Dark Knight"
+        image="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+        [rating]="9.0"
+      >
+      </app-movie-card>
+
+      <app-movie-card
+        title="Dune"
+        image="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
+        [rating]="8.2"
+      >
+      </app-movie-card>
+    </div>
+  </section>
 </main>
 
-<footer></footer>
+<footer>
+  <app-footer></app-footer>
+</footer>
