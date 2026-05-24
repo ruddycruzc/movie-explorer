@@ -32,33 +32,16 @@
         gap-8
       "
     >
-      <app-movie-card
-        title="Interstellar"
-        image="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-        [rating]="8.7"
-      >
-      </app-movie-card>
+      @for(movie of movies; track movie.id){
 
-      <app-movie-card
-        title="Inception"
-        image="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
-        [rating]="8.8"
-      >
-      </app-movie-card>
+        <app-movie-card
+          [title]="movie.title"
+          [image]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          [rating]="movie.vote_average"
+        >
+        </app-movie-card>
 
-      <app-movie-card
-        title="The Dark Knight"
-        image="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-        [rating]="9.0"
-      >
-      </app-movie-card>
-
-      <app-movie-card
-        title="Dune"
-        image="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg"
-        [rating]="8.2"
-      >
-      </app-movie-card>
+      }
     </div>
   </section>
 </main>
