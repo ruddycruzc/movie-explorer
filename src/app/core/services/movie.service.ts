@@ -24,4 +24,12 @@ export class MovieService {
       }
     );
   }
+  getMovieById(id: number) {
+  return this.http.get(
+    `${environment.apiUrl}/movie/${id}?language=es-ES`,
+    {
+      headers: this.headers
+    }
+  );
+}
 }
