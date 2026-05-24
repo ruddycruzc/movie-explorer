@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 
 import { Navbar } from '../../shared/navbar/navbar';
 import { Footer } from '../../shared/footer/footer';
@@ -19,20 +19,27 @@ import { MovieService } from '../../core/services/movie.service';
 })
 export class Home implements OnInit {
 
-  private movieService = inject(MovieService);
+  private readonly movieService = inject(MovieService);
 
-  movies: Movie[] = [];
+  public movies = signal<Movie[]>([]);
+public isLoading = signal<boolean>(true);
 
-  ngOnInit(): void {
+ngOnInit(): void {
+    this.loadPopularMovies();
+  }
 
-    this.movieService
-      .getPopularMovies()
-      .subscribe(response => {
+  private loadPopularMovies(): void {
+this.isLoading.set(true);
 
-        this.movies = response.results;
-
-        console.log(this.movies);
-
-      });
+    this.movieService.getPopularMovies().subscribe({
+      next: (response) => {
+        this.movies.set(response.results);
+        this.isLoading.set(false);
+      },
+      error: (err) => {
+        console.error('Error al cargar películas en Home:', err);
+        this.isLoading.set(false);
+      }
+    });
   }
 }

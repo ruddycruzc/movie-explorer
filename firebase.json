@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "ruddy-lab",
+    "public": "dist/movie-explorer/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
